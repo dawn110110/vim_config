@@ -1,52 +1,3 @@
-" https://github.com/sontek/dotfiles/
-" ==========================================================
-" Dependencies - Libraries/Applications outside of vim
-" ==========================================================
-" Pep8 - http://pypi.python.org/pypi/pep8
-" Pyflakes
-" Ack
-" Rake & Ruby for command-t
-" nose, django-nose
-
-" ==========================================================
-" Plugins included
-" ==========================================================
-" Pathogen
-"     Better Management of VIM plugins
-"
-" GunDo
-"     Visual Undo in vim with diff's to check the differences
-"
-" Pytest
-"     Runs your Python tests in Vim.
-"
-" Commant-T
-"     Allows easy search and opening of files within a given path
-"
-" Snipmate
-"     Configurable snippets to avoid re-typing common comands
-"
-" PyFlakes
-"     Underlines and displays errors with Python on-the-fly
-"
-" Fugitive
-"    Interface with git from vim
-"
-" Git
-"    Syntax highlighting for git config files
-"
-" Pydoc
-"    Opens up pydoc within vim
-"
-" Surround
-"    Allows you to surround text with open/close tags
-"
-" Py.test
-"    Run py.test test's from within vim
-"
-" MakeGreen
-"    Generic test runner that works with nose
-"
 " ==========================================================
 " Shortcuts
 " ==========================================================
@@ -113,8 +64,11 @@ imap <C-W> <C-O><C-W>
 " Open NerdTree
 map <leader>n :NERDTreeToggle<CR>
 
-" Open TagList
-map <leader>l :TlistToggle<CR>
+"" Open TagList
+"map <leader>l :TlistToggle<CR>
+
+" Open TagBar
+map <leader>tb :TagbarToggle<CR>
 
 " Run command-t file search
 map <leader>f :CommandT<CR>
@@ -124,11 +78,11 @@ nmap <leader>a <Esc>:Ack!
 " Load the Gundo window
 map <leader>g :GundoToggle<CR>
 
-" Jump to the definition of whatever the cursor is on
-map <leader>j :RopeGotoDefinition<CR>
+"" Jump to the definition of whatever the cursor is on
+"map <leader>j :RopeGotoDefinition<CR>
 
-" Rename whatever the cursor is on (including references to it)
-map <leader>r :RopeRename<CR>
+"" Rename whatever the cursor is on (including references to it)
+"map <leader>r :RopeRename<CR>
 " ==========================================================
 " Pathogen - Allows us to organize our vim plugins
 " ==========================================================
@@ -235,7 +189,8 @@ set incsearch               " Incrementally search while typing a /regex
 
 """" Display
 if has("gui_running")
-    colorscheme desert
+    colorscheme solarized
+    set background=dark
     set guifont=Menlo:h14
     " Remove menu bar
     set guioptions-=m
@@ -243,7 +198,8 @@ if has("gui_running")
     " Remove toolbar
     set guioptions-=T
 else
-    colorscheme elflord
+    colorscheme solarized
+    set background=dark
 endif
 
 " Paste from clipboard
@@ -312,23 +268,63 @@ endif
 set colorcolumn=79
 set fileencodings=ucs-bom,utf8,GB18030,Big5,latin1
 
-" TagList config
+" TagList config, no longer used, tagbar is better
 " let Tlist_Ctags_Cmd = '' # specify ctags dir, must be exuberant-ctags
-let Tlist_Auto_Open=0 " Let the tag list open automatically
-let Tlist_Auto_Update=1 " Update the tag list automatically
-let Tlist_Compact_Format=1 " Hide help menu
-let Tlist_Ctags_Cmd='ctags' " Location of ctags
-let Tlist_Enable_Fold_Column=0 "do show folding tree
-let Tlist_Process_File_Always=1 " Always process the source file
-let Tlist_Show_One_File=1 " Only show the tag list of current file
-let Tlist_Exist_OnlyWindow=1 " If you are the last, kill yourself
-let Tlist_File_Fold_Auto_Close=0 " Fold closed other trees
-let Tlist_Sort_Type="name" " Order by name
-let Tlist_WinWidth=40 " Set the window 40 cols wide.
-let Tlist_Close_On_Select=0 " Close the list when a item is selected
-let Tlist_Use_SingleClick=1 "Go To Target By SingleClick
+"let Tlist_Auto_Open=0 " Let the tag list open automatically
+"let Tlist_Auto_Update=1 " Update the tag list automatically
+"let Tlist_Compact_Format=1 " Hide help menu
+"let Tlist_Ctags_Cmd='ctags' " Location of ctags
+"let Tlist_Enable_Fold_Column=0 "do show folding tree
+"let Tlist_Process_File_Always=1 " Always process the source file
+"let Tlist_Show_One_File=1 " Only show the tag list of current file
+"let Tlist_Exist_OnlyWindow=1 " If you are the last, kill yourself
+"let Tlist_File_Fold_Auto_Close=0 " Fold closed other trees
+"let Tlist_Sort_Type="name" " Order by name
+"let Tlist_WinWidth=40 " Set the window 40 cols wide.
+"let Tlist_Close_On_Select=0 " Close the list when a item is selected
+"let Tlist_Use_SingleClick=1 "Go To Target By SingleClick
 
-" TagList keys config
+" Golang Config
+" You need to install gotags your self, else, comment this
+set runtimepath+=$GOROOT/misc/vim
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+    \ }
+
 
 " mouse click set
 set mouse=a
+
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set noswapfile  " I don't like swap files
+set wrap
+
+autocmd FileType rst setlocal noexpandtab
+

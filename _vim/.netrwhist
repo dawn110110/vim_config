@@ -1,4 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/Users/dawn110110/code/pypi_mirror/lib/python2.7/site-packages/pep381client'
-let g:netrw_dirhist_2='/Users/dawn110110/code/pypi_mirror'
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/dawn110110'
+let g:netrw_dirhist_2='/Users/dawn110110/WebSites/project'
+let g:netrw_dirhist_3='/Users/dawn110110/code/ssnew_tucao/ssdutnews/static'
+let g:netrw_dirhist_4='/Users/dawn110110/baidu/ups/accelerator'
+let g:netrw_dirhist_5='/Users/dawn110110/code/luigi-master/debian'
+let g:netrw_dirhist_6='/Users/dawn110110/code/GO_LANG'
+let g:netrw_dirhist_7='/Users/dawn110110/code/fireftp/ftpfire'
+let g:netrw_dirhist_8='/Users/dawn110110/.my_vim_config/github_repo/_vim'
