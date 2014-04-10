@@ -335,3 +335,10 @@ set wrap
 
 autocmd FileType rst setlocal noexpandtab
 
+" showmarks 颜色，黑背景，红文字. 只显示字母mark，默认开启.
+hi ShowMarksHLl ctermfg=red ctermbg=black cterm=bold guifg=red guibg=black gui=bold
+hi ShowMarksHLu ctermfg=red ctermbg=black cterm=bold guifg=red guibg=black gui=bold
+hi ShowMarksHLo ctermfg=red ctermbg=black cterm=bold guifg=red guibg=black gui=bold
+hi ShowMarksHLm ctermfg=red ctermbg=black cterm=bold guifg=red guibg=black gui=bold
+let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+let g:showmarks_enable = 1
