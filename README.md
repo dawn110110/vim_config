@@ -1,9 +1,9 @@
 #我的vim配置
 
 - 特别为python编程定制
-- 需要exuberant ctags, 且只支持`exuberant ctags`，别的ctags不好使.
+- 需要exuberant ctags, 且只支持`exuberant ctags`，别的ctags不好使，比如mac自带的ctags就不行.（_vim/external_program 里有个ctags-5.8，有必要的话，可以编译这个）
 - 需要安装pep8
-- 添加了 golang 的配置，需要自己安装 gotags, 如果不需要/不喜欢，可以在_vimrc 里把关于 golang那段注掉.
+- 添加了 golang 的配置，需要自己安装golang 和 gotags 并设置 gotags 需要的环境变量等, 如果不需要/不喜欢，可以在_vimrc 里把关于 golang那段注掉.
 
 ##注意
 - 设置了 noswapfile，没有swap文件，在_vimrc 最后边.
