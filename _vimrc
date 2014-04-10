@@ -320,6 +320,13 @@ let g:tagbar_type_go = {
 " mouse click set
 set mouse=a
 
+" enable mouse resize in tmux window
+if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+endif
+
+
 set tabstop=4
 set shiftwidth=4
 set expandtab
